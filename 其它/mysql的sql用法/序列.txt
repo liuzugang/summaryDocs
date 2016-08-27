@@ -1,0 +1,12 @@
+DROP TABLE my_table;
+CREATE TABLE my_table
+(
+   id INTEGER AUTO_INCREMENT PRIMARY KEY,
+   pass varchar(20)
+);
+
+SELECT * FROM my_table;
+
+INSERT INTO my_table VALUES(1,'adsfa');
+INSERT INTO my_table(pass) VALUES('bbb');
+INSERT INTO my_table(pass) VALUES('aaa');

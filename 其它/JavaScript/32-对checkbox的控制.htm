@@ -1,0 +1,47 @@
+<HTML>
+
+<HEAD>
+	<Script Language="JavaScript">
+		function test()
+		{
+			//利用click()方法
+			document.myform.checkbox1.click();
+			document.myform.checkbox2.click();
+			document.myform.checkbox3.click();
+			document.myform.checkbox4.click();
+		}
+		
+		function checkall()
+		{
+			if(document.myform.checkbox6.checked==true)
+			{
+				//设置checked属性
+				document.myform.checkbox1.checked=true;
+				document.myform.checkbox2.checked=true;
+				document.myform.checkbox3.checked=true;
+				document.myform.checkbox4.checked=true;
+			}
+			else
+			{
+				document.myform.checkbox1.checked=false;
+				document.myform.checkbox2.checked=false;
+				document.myform.checkbox3.checked=false;
+				document.myform.checkbox4.checked=false;
+			}
+		}
+	</Script>
+</HEAD>
+
+<BODY>
+  <form name="myform">
+	<INPUT type="checkbox" name="checkbox1">游泳<br>
+	<INPUT type="checkbox" name="checkbox2">滑冰<br>
+	<INPUT type="checkbox" name="checkbox3">散步<br>
+	<INPUT type="checkbox" name="checkbox4">阅读<br>
+	<hr color="#0000ff">
+	<INPUT type="checkbox" value="全部反选" name="checkbox5" onClick="test()">全部反选<br>
+	<INPUT type="checkbox" value="全选" name="checkbox6" onClick="checkall()">全选<br>
+  </form>	
+</BODY>
+
+</HTML>

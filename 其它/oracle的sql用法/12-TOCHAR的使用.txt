@@ -1,0 +1,5 @@
+SELECT TO_CHAR(gprice,'0999.99') FROM shangpin_table;
+添加前到零。
+
+SELECT TO_CHAR(gprice,'999.99') FROM shangpin_table;
+小数补零。

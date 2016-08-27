@@ -1,0 +1,24 @@
+<HTML>
+   <HEAD>
+    <Script Language="JavaScript">
+		function joinString()
+		{
+			var result="";
+			for(var i=0;i<arguments.length;i++)
+			{
+			    result+=arguments[i];
+			}
+			
+			return result;
+		}
+		
+    </Script>
+   </HEAD>
+
+   <BODY>
+     <Script Language="JavaScript">
+       var result=joinString("H","ell","o","!!!");
+       document.write(result);
+     </Script>
+   </BODY>
+</HTML>

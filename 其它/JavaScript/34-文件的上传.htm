@@ -1,0 +1,28 @@
+<html>
+
+<head>
+<script language="javascript">
+function check(a) {
+var mystr = ""
+      
+      mystr += "[1] name: " + a.name + "\n"
+      mystr += "[2] type: " + a.type + "\n"
+      mystr += "[3] value: " + a.value
+      
+      alert(mystr)
+      document.myform.submit();
+  }
+</script>
+</head>
+
+<body>
+
+<form method="POST" enctype="multipart/form-data" action="www.heut.edu.cn" name="myform" >
+     <input type="file" name="F1" size="20"></p>
+  <p><input type="button" value="Ìá½»" name="B1" onclick="check(myform.F1)">
+     <input type="reset" value="ÖØÖÃ" name="B2"></p>
+</form>
+
+</body>
+
+</html>

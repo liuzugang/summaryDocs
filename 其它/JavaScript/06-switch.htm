@@ -1,0 +1,56 @@
+<html>
+	<head>
+		<Script Language="JavaScript">
+			var a=20;
+			
+			switch(a)
+			{
+				case 20:
+					alert("a=20");
+					break;	
+				case 30:
+					alert("a=30");
+					break;	
+				case 40:
+					alert("a=40");
+					break;	
+				default:
+					alert("other value!");
+					break;
+			}
+			
+			
+			var ms="appale";
+			var fruit_count=0;
+			var stationary_count=0;
+			var other_count=0;
+			
+			switch(ms)
+			{
+			  default:
+			   other_count++;
+			  break;
+			  
+			  case "appale":
+			  case "pear":
+			    fruit_count++;
+			  break;
+			  
+			  case "ruler":
+			  case "pencil":
+			    stationary_count++;
+			  break;
+
+			}
+			
+			document.write("fruit_count="+fruit_count+"<br>");
+			document.write("stationary_count="+stationary_count+"<br>");
+			document.write("other_count="+other_count+"<br>");
+			
+		</Script>
+	</head>
+	
+	<body>
+	</body>
+
+</html>

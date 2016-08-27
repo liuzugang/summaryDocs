@@ -1,0 +1,38 @@
+<html>
+  <head>
+      <title>DOMÊ÷µ¼º½</title>
+      <script language="JavaScript">
+          var count=2;
+          
+          function addTd()
+          {
+             var newTD=document.createElement("TD");
+             newTD.id="c"+(count+1);
+             var newText=document.createTextNode("column"+(++count));
+             newTD.appendChild(newText);
+             document.all.aa.appendChild(newTD);
+          }
+          
+          function deleteTD()
+          {
+             if (count>0)
+             {             
+                var temp="c"+count;
+                eval("document.all."+temp+".removeNode(true);");
+                count--;             
+             }
+          }
+      </script>
+  </head>
+  <body>
+     <table border=1>
+       <tr id=aa>
+         <td id=c1>column1</td>
+         <td id=c2>column2</td>
+       </tr>
+     </table>
+     <br>
+     <input type=button value=" Add " onClick="addTd()">
+     <input type=button value="Delete" onClick="deleteTD()">
+  </body>
+</html>

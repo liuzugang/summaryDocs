@@ -1,0 +1,10 @@
+SELECT * FROM shangpin_table 
+WHERE gname=('&goodname');
+
+
+***************************************
+
+ACCEPT gname PROMPT 'PLEASE GOODS NAME>' 
+SELECT * FROM shangpin_table WHERE gname=('&gname');
+
+只能通过脚本执行，不能复制执行。

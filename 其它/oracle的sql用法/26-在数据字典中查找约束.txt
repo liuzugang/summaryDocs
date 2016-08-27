@@ -1,0 +1,8 @@
+1>
+DESC user_constraints;
+
+2>
+SELECT  CONSTRAINT_NAME,CONSTRAINT_TYPE 
+FROM user_constraints
+WHERE TABLE_NAME='STUDENT_T';
+             

@@ -1,0 +1,43 @@
+<HTML>
+
+<HEAD>
+	<Script Language="JavaScript">
+		function whichRadio()
+		{
+			for(var i=0;i<6;i++)
+			{
+				if(document.myform.myradio[i].checked)
+					return i+1;
+			}
+			return "没有选项被选中!";
+		}
+	</Script>
+</HEAD>
+
+<BODY>
+  <form name="myform">
+	<INPUT type="radio" name="myradio" value="游泳">游泳<br>
+	<INPUT type="radio" name="myradio" value="滑冰">滑冰<br>
+	<INPUT type="radio" name="myradio" value="散步">散步<br>
+	<INPUT type="radio" name="myradio" value="旅游">旅游<br>
+	<INPUT type="radio" name="myradio" value="乒乓">乒乓<br>
+	<INPUT type="radio" name="myradio" value="睡觉">睡觉<br>
+  </form>
+  
+  <hr color=#0000ff>  
+  
+  <form name="btnForm">	
+	<INPUT type="button" value="显示长度" name="displayBtn" onClick="alert(myform.myradio.length)"><br><br>
+	<INPUT type="button" value="谁被选中" name="whichBtn" onClick="alert(whichRadio())"><br>
+	<hr color=#0000ff>  	
+	<INPUT type="button" value="选中第一个" name="Btn0" onClick="myform.myradio[0].click()">
+	<INPUT type="button" value="选中第二个" name="Btn1" onClick="myform.myradio[1].click()">
+	<INPUT type="button" value="选中第三个" name="Btn2" onClick="myform.myradio[2].click()">
+	<INPUT type="button" value="选中第四个" name="Btn3" onClick="myform.myradio[3].click()">
+	<INPUT type="button" value="选中第五个" name="Btn4" onClick="myform.myradio[4].click()">
+	<INPUT type="button" value="选中第六个" name="Btn5" onClick="myform.myradio[5].click()">
+	<br><br>
+  </form>	
+</BODY>
+
+</HTML>

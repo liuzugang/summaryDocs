@@ -1,0 +1,30 @@
+drop table person;
+
+CREATE TABLE person
+(
+    pid NUMBER(10),
+    pname VARCHAR2(20)
+);
+
+CREATE INDEX pid_index 
+ON person(pid);
+
+set serveroutput on
+set echo on
+
+declare
+n_loop number;
+s_time date;
+e_time date;
+begin
+  select sysdate into s_time from dual;
+  for n_loop in 1..10000 loop
+     insert into person values(n_loop,'name'||n_loop);
+     commit;
+  end loop;
+  select sysdate into s_time from dual;
+  dbms_output.put_line(to_char((s_time),'hh:mi:ss'));
+  dbms_output.put_line(to_char((e_time),'hh:mi:ss'));
+end;
+/
+set serveroutput off

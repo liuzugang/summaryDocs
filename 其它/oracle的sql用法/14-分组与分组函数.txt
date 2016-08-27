@@ -1,0 +1,106 @@
+
+DROP TABLE spxs_table;
+
+CREATE TABLE spxs_table
+(
+   sid CHAR(5),
+   pid CHAR(5),
+   pcount NUMBER(4,0),
+   pprice NUMBER(6,2),
+   PRIMARY KEY(sid)
+);
+
+INSERT INTO spxs_table VALUES('1001','0001',20,8.50);
+INSERT INTO spxs_table VALUES('1002','0002',10,48.50);
+INSERT INTO spxs_table VALUES('1003','0003',150,48.00);
+INSERT INTO spxs_table VALUES('1004','0003',28,148.50);
+INSERT INTO spxs_table VALUES('1005','0003',40,8.50);
+INSERT INTO spxs_table VALUES('1006','0002',10,48.50);
+
+SELECT pid,SUM(pprice*pcount) AS "销售额"
+FROM spxs_table
+GROUP BY(pid)
+ORDER BY(pid) ASC;
+
+/*********************************
+ *   错误用法：
+     SELECT pid,pcount,SUM(pprice*pcount) AS "销售额"
+     FROM spxs_table
+     GROUP BY(pid)
+     ORDER BY(pid) ASC;
+ *
+***********************************/
+
+SELECT pid,COUNT(sid) AS "交易次数"
+FROM spxs_table
+GROUP BY(pid)
+ORDER BY(pid) ASC;
+
+SELECT TO_CHAR(SUM(pcount*pprice),0999999999.99) AS "总销售额元"
+FROM spxs_table;
+
+
+
+___________________________________________________________________________________________
+
+DROP TABLE ywxs_table;
+
+CREATE TABLE ywxs_table
+(
+   lsid CHAR(5),
+   xsdate DATE,
+   hwid CHAR(5),
+   gprice NUMBER(8,2),
+   gcount NUMBER(8,2),
+   jspeople VARCHAR2(20),
+   PRIMARY KEY(lsid)    
+);
+
+SELECT lsid,xsdate
+FROM ywxs_table;
+
+INSERT INTO 
+ywxs_table (lsid,xsdate,hwid,gprice,gcount,jspeople)
+VALUES('10001',TO_DATE('2005-3-18','YYYY-MM-DD'),'00001',58.2,25,'Liu');
+
+INSERT INTO 
+ywxs_table (lsid,xsdate,hwid,gprice,gcount,jspeople)
+VALUES('10002',TO_DATE('2003-3-18','YYYY-MM-DD'),'00002',58.00,25,'Zhang');
+
+INSERT INTO 
+ywxs_table (lsid,xsdate,hwid,gprice,gcount,jspeople)
+VALUES('10003',TO_DATE('2006-3-18','YYYY-MM-DD'),'00002',43.50,25,'Liu');
+
+INSERT INTO 
+ywxs_table (lsid,xsdate,hwid,gprice,gcount,jspeople)
+VALUES('10004',TO_DATE('2006-3-18','YYYY-MM-DD'),'00003',58.2,2.5,'Li');
+
+INSERT INTO 
+ywxs_table (lsid,xsdate,hwid,gprice,gcount,jspeople)
+VALUES('10006',TO_DATE('2006-3-19','YYYY-MM-DD'),'00003',11.1,0.11,'Li');
+
+INSERT INTO 
+ywxs_table (lsid,xsdate,hwid,gprice,gcount,jspeople)
+VALUES('10007',TO_DATE('2006-4-19','YYYY-MM-DD'),'00002',11.1,0.11,'Liu');
+
+INSERT INTO 
+ywxs_table (lsid,xsdate,hwid,gprice,gcount,jspeople)
+VALUES('10008',TO_DATE('2006-8-19','YYYY-MM-DD'),'00004',11.1,0.11,'Liu');
+
+************************************************************************************
+
+SELECT jspeople,xsdate,TO_CHAR(SUM(gprice*gcount),'9999.00') AS "销售额"
+FROM ywxs_table
+GROUP BY jspeople,xsdate
+ORDER BY SUM(gprice*gcount) DESC;
+
+
+SELECT TO_CHAR(xsdate,'YYYY"年"') AS "年份",TO_CHAR(SUM(gprice*gcount),'9999.00') AS "销售额"
+FROM ywxs_table
+GROUP BY TO_CHAR(xsdate,'YYYY"年"');
+
+
+SELECT TO_CHAR(xsdate,'YYYY"年"MM"月"') AS "月份",TO_CHAR(SUM(gprice*gcount),'9999.00') AS "销售额"
+FROM ywxs_table
+GROUP BY TO_CHAR(xsdate,'YYYY"年"MM"月"')
+ORDER BY TO_CHAR(xsdate,'YYYY"年"MM"月"') DESC;

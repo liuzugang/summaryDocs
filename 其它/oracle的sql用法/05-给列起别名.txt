@@ -1,0 +1,5 @@
+SELECT gname as "商品  ",gprice as "价格  ",shuliang as "数量  " FROM shangpin_table;
+
+***********************************
+
+注意此处的双引号" ",不能用单引号' 代替。

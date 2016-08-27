@@ -1,0 +1,8 @@
+SELECT * FROM shangpin_table 
+WHERE gname='aa' 
+OR    gname='bb';
+****************************
+当数量多时用
+
+SELECT * FROM shangpin_table 
+WHERE gname IN ('aa','bb');

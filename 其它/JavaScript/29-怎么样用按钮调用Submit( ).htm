@@ -1,0 +1,32 @@
+<HTML>
+<HEAD>
+	<TITLE></TITLE>
+	<Script Language="JavaScript">
+		function my_submit(var1)
+		{		
+			if(confirm("确实要提交？"))
+			{
+				if(var1==1)	document.myform1.submit();
+				if(var1==2)	document.myform2.submit();
+			}
+		}
+	</Script>
+</HEAD>
+
+<BODY>
+	
+	<form Name="myform1" action="http://www.baidu.com" method="POST">
+		<p><input type ="text" name="text1">
+		<p><input type="text"  name="text2">
+		<p><input type="text"  name="text3">
+		<p><input type="button" value="提交myform1" onClick="my_submit(1)">
+	</form>
+
+	<form Name="myform2" action="mailto:service@jobedu.com.cn" method="POST">
+		<input type="text"  name="text4">
+		<input type="text"  name="text5">
+		<p><input type="button" value="提交myform2"  onClick="my_submit(2)">
+	</form>
+
+</BODY>
+</HTML>

@@ -1,0 +1,38 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+
+<script language="JavaScript">
+<!--
+   function text_move(txt) {
+       txt.value = txt.defaultValue
+   }
+   
+   function AllSelect(txt) {
+       txt.select()
+   }
+//-->
+</script>
+</head>
+
+<body>
+
+<p><font size="6">这里是留言簿,您可以随意留下信息.</font></p>
+<hr>
+<form method="POST" action="">
+<p>
+  <textarea rows="10" name="S1" cols="30">
+欢迎您到三维职业认证服务中心学习！
+三维职业认证服务中心就业教育，成功人生第一步</textarea></p>
+  <p><input type="button" value="初始字符串" onclick="text_move(this.form.S1)">
+  <input type="button" value="全选" onclick="AllSelect(this.form.S1)">
+  </p>
+</form>
+<p>　</p>
+<p>　</p>
+<p>　</p>
+
+</body>
+
+</html>

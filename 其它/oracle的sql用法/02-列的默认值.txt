@@ -1,0 +1,9 @@
+drop table test_table;
+
+create table test1_table
+(
+    sno varchar(5) not null,
+    sname varchar(5) default('www') not null
+);
+
+insert into test1_table(sno) values('111');

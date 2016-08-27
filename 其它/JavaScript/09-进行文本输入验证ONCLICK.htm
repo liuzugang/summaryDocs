@@ -1,0 +1,21 @@
+<HTML>
+<HEAD>
+	<Script Language="JavaScript">
+		function check()
+		{
+			if(document.myform.txt1.value=="")
+				alert("请输入姓名！");
+			else
+				alert("您的姓名是："+document.myform.txt1.value);	
+		}
+	</Script>
+</HEAD>
+
+<BODY>
+	<form name="myform">
+		<p>请输入您的姓名：
+		<input type="text" name="txt1" value="">
+		<p><input type="button" value="确定" name="ok" OnClick="check()">
+	</form>
+</BODY>
+</HTML>

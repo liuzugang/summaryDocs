@@ -1,0 +1,10 @@
+1>
+   先执行utlxplan.sql(E:\oracle\product\10.2.0\db_1\RDBMS\ADMIN);
+   (oracle_home=E:\oracle\product\10.2.0\db_1\RDBMS);
+   (oracle_home/rdbms/admin/utlxplan.sql;
+
+2>
+   执行createDate造一张表.(测试其他表可以跳过此步)
+
+3>
+   执行cheshi

@@ -1,0 +1,47 @@
+<html>
+<head>
+<script src="jquery_last.js" type="text/javascript"></script>
+<link type="text/css" rel="stylesheet" href="style/validator.css"></link>
+<script src="formValidator.js" type="text/javascript" charset="UTF-8"></script>
+<script src="formValidatorRegex.js" type="text/javascript" charset="UTF-8"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	//$.formValidator.initConfig({onerror:function(){alert("校验没有通过，具体错误请看错误提示")}});
+	$.formValidator.initConfig({formid:"form1",onerror:function(msg){alert(msg)},onsuccess:function(){alert('ddd');return false;}});
+		$("input:checkbox[@name='checkbox1']").formValidator({tipid:"test3Tip",onshow:"请选择你的兴趣爱好（至少选一个）",onfocus:"你至少选择1个",oncorrect:"恭喜你,你选对了"}).inputValidator({min:1,onerror:"你选的个数不对"});
+	});
+
+</script>
+<style type="text/css" media="all">
+body,div{font-size:12px;}
+</style>
+</head>
+
+<body>
+
+<form action="" method="post" name="form1" id="form1">
+  <table border="0px" style="font-size:12px" width="630px">
+    
+    <tr> 
+      <td align="right">兴趣爱好1:</td>
+      <td colspan="2"> <input type="checkbox" name="checkbox1" id="qq1"/>
+        乒乓球 
+        <input type="checkbox" name="checkbox1" id="qq2" value="1" />
+        羽毛球 
+        <input type="checkbox" name="checkbox1" id="qq3" value="2" />
+        上网 
+        <input type="checkbox" name="checkbox1" id="qq4" value="3" />
+        旅游 
+        <input type="checkbox" name="checkbox1" id="qq5" value="4" />
+        购物 </td>
+    </tr>
+    
+  </table>
+  <br />
+  
+    <input type="submit" name="button" id="button" value="提交" />
+  
+</form>
+</body>
+</html>
+<script defer="defer" src="datepicker/WdatePicker.js" type="text/javascript"></script>

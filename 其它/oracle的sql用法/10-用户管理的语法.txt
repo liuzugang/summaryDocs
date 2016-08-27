@@ -1,0 +1,8 @@
+accept uid prompt 'ÓÃ»§Ãû>';
+accept pwd prompt 'ÃÜÂë>'
+
+drop user &uid;
+
+create user &uid identified by &pwd;
+
+grant resource,connect to &uid;

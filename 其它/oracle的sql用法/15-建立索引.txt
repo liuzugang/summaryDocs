@@ -1,0 +1,21 @@
+1>
+ 
+    CREATE INDEX index_name
+    ON shangpin_table(sid);
+
+    B_TREE索引适用于分离度大的字段。
+
+++++++++++++++++++++++++++++++++++++++++++++
+2>
+
+    CREATE BITMAP INDEX index_name
+    ON changpin_table(ssex);
+
+    BITMAP索引适用于离度小的字段。
+
+    
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    CREATE INDEX sid_index
+    ON spxs_table(sid);
+

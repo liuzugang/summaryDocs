@@ -1,0 +1,6 @@
+create table buybook_table
+(
+   bookprice numeric(6,2)
+);
+
+//numeric表示共8位数字,其中小数部分占2位

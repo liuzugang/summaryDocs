@@ -1,0 +1,61 @@
+
+//sqlj基本联接.insert hellow sqlj入  sales表。
+//之后用sqlplus察看结果;select * from sales;
+
+import sqlj.runtime.*;
+import sqlj.runtime.ref.*;
+
+import oracle.sqlj.runtime.*;
+
+import java.sql.*;
+
+#sql iterator student_iterator (
+  String sno,
+  String sname,
+  String sage,
+  String sclass 
+);
+
+public class testsqlj {
+	public static void main(String args[]) {
+	    
+        		
+		//String name_test="ora8";
+        //宿主变量
+
+		try {
+			Oracle.connect(testsqlj.class,"connect.properties");
+            //联接数据库
+
+			#sql {delete from student};
+
+            //直接更新数据
+            String ss="qqqq";
+            #sql {INSERT INTO STUDENT VALUES ('10009','wyfffwl','21','98001')};
+            #sql {INSERT INTO STUDENT VALUES ('10009','wyffztt','21','98001')};
+            #sql {INSERT INTO STUDENT VALUES ('10009',:ss,'21','98001')};
+            System.out.println("before submit!");
+            //使用commit
+            #sql {commit};
+            System.out.println("OK!!!");
+
+            //查询
+            student_iterator si=null;
+            #sql si={select * from student};
+            
+            System.out.println("sno\tsname\tsage\tsclass");
+            while(si.next())
+            {
+               System.out.println(si.sno()+"\t"+si.sname()+"\t"+si.sage()+"\t"+si.sclass());
+            }
+
+            System.out.println("Press any key to continue wyf...");
+            System.in.read();
+		} catch (Exception e) {
+			System.out.println(e.toString());
+			e.printStackTrace();
+		}
+		
+	}
+
+}

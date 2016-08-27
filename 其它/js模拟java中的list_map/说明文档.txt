@@ -1,0 +1,22 @@
+javascript 模拟 java中的 List,Map
+js文件为 js/utils.js
+IE6.0 测试通过
+
+List:
+add(var obj)	//添加一个元素
+remove(var index)	//删除一个元素
+get(var index)	//获取一个元素
+removeAll()	//删除所有元素
+toArray()	//获取元素数组
+size()	//获取元素个数
+
+Map:
+put(var key,var value)	//放置元素
+get(var key)	//获取元素
+size()	//获取元素个数
+getKeys()	//获取所有的KEY
+
+Set:
+add(var obj)	//添加一个元素
+remove(var obj);	//删除一个元素
+toString();		

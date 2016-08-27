@@ -1,0 +1,33 @@
+1>
+DROP TABLE student_t;
+
+CREATE TABLE student_t
+(
+   sid CHAR(8) PRIMARY KEY  
+); 
+
+2>
+
+DROP TABLE student_t;
+
+CREATE TABLE student_t
+(
+   sid CHAR(8),
+   CONSTRAINT sid_pk PRIMARY KEY(sid)  
+);
+
+3>
+DROP TABLE student_t;
+
+CREATE TABLE student_t
+(
+   sid CHAR(8)  
+);
+
+ALTER TABLE student_t
+ADD PRIMARY KEY(sid);
+
+***********************************************
+
+注意：
+      建立主键后，系统自动添加null，unique和索引。

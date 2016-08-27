@@ -1,0 +1,44 @@
+drop table author;
+CREATE TABLE author
+(
+   aid CHAR(4),
+   aname VARCHAR2(20),
+   accountbooks NUMBER(4),
+   CONSTRAINT pk_aid PRIMARY KEY(aid)
+);
+INSERT INTO author(aid,aname)
+VALUES('1001','wyf');
+INSERT INTO author(aid,aname)
+VALUES('1002','wxl');
+INSERT INTO author(aid,aname)
+VALUES('1003','xb');
+
+SELECT * FROM author;
+
+
+drop table work_book;
+CREATE TABLE work_book
+(
+   aid CHAR(4),
+   wbname VARCHAR2(20),
+   CONSTRAINT pk_aid1 PRIMARY KEY(aid,wbname)
+);
+
+INSERT INTO work_book(aid,wbname)
+VALUES('1001','a');
+INSERT INTO work_book(aid,wbname)
+VALUES('1001','b');
+INSERT INTO work_book(aid,wbname)
+VALUES('1002','c');
+
+SELECT * FROM work_book;
+
+
+update author a set accountbooks=(
+                                   select count(wbname)
+                                   from work_book 
+                                   group by aid
+                                   having a.aid=work_book.aid
+                                 );
+
+

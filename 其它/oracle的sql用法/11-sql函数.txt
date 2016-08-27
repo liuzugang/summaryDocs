@@ -1,0 +1,42 @@
+CREATE TABLE shu_table
+(
+   dd  number(6,2)
+);
+
+INSERT INTO shu_table VALUES(4983.46);
+INSERT INTO shu_table VALUES(4933.46);
+INSERT INTO shu_table VALUES(183.46);
+INSERT INTO shu_table VALUES(4083.46);
+=======================================================
+ROUND函数：
+SELECT ROUND(101.05,2) FROM DUAL;
+SELECT ROUND(101.05,1) FROM DUAL;
+SELECT ROUND(101.05,0) FROM DUAL;
+SELECT ROUND(101.05,-1) FROM DUAL;
+SELECT ROUND(dd,-1) FROM shu_table;
+
+********************************************************
+TRUNC函数：
+
+SELECT TRUNC(dd,2) FROM shu_table;
+SELECT TRUNC(dd,1) FROM shu_table;
+SELECT TRUNC(dd,-1) FROM shu_table;
+SELECT TRUNC(dd,0) FROM shu_table;
+
+********************************************************
+UPPER(全大写),LOWER(全小写),INITCAP(第一个字母大写)函数
+
+SELECT UPPER(gname) FROM shangpin_table;
+SELECT LOWER(gname) FROM shangpin_table;
+SELECT INITCAP(gname) FROM shangpin_table;
+
+*********************************************************
+SUBSTR(求子串)
+
+SELECT SUBSTR(gname,1,3) FROM shangpin_table;
+SELECT INSTR('aldkfa%;ad','%',1) FROM dual;
+
+*********************************************************
+INSTR(字串的定位)
+
+SELECT INSTR(gname,'%',1) FROM shangpin_table;

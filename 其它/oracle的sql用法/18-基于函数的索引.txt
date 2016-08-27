@@ -1,0 +1,2 @@
+CREATE INDEX index_name
+ON name_table(UPPER(pname)); 

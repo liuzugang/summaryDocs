@@ -1,0 +1,47 @@
+DROP TABLE mz_t;
+
+CREATE TABLE mz_t
+(
+   mzid CHAR(2),
+   mzname VARCHAR2(20),
+   CONSTRAINT mzid_pk PRIMARY KEY(mzid)
+);
+**********************************************
+1>
+DROP TABLE man_t;
+
+CREATE TABLE man_t
+(
+   mid CHAR(4),
+   mzid CHAR(2),
+   CONSTRAINT mzid_fk FOREIGN KEY(mzid)
+   REFERENCES mz_t(mzid)
+);
+
+2>
+DROP TABLE man_t;
+
+CREATE TABLE man_t
+(
+   mid CHAR(4),
+   mzid CHAR(2)
+);
+
+ALTER TABLE man_t
+ADD CONSTRAINT mzid_fk FOREIGN KEY(mzid)
+REFERENCES mz_t(mzid);
+
+
+++++++++++++++++++++++
+
+INSERT INTO mz_t VALUES('01','ºº×å');
+INSERT INTO man_t VALUES('1001','01');
+
+DROP TABLE mz_t;
+
+DELETE FROM mz_t WHERE mzid='01';
+
+SELECT mid,mzname 
+FROM mz_t,man_t
+WHERE mz_t.mzid=man_t.mzid;
+

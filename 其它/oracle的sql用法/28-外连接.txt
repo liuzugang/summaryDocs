@@ -1,0 +1,53 @@
+DROP TABLE student_t;
+
+CREATE TABLE student_t
+(
+   sid CHAR(4),
+   sname VARCHAR2(20),
+   sage NUMBER(3),
+   CONSTRAINT sid_pk PRIMARY KEY(sid)
+);
+
+INSERT INTO student_t VALUES('1001','Mike',21);
+
+INSERT INTO student_t VALUES('1002','Tom',20);
+
+INSERT INTO student_t VALUES('1003','John',22);
+******************************************************************
+DROP TABLE crouse_t;
+CREATE TABLE crouse_t
+(
+   cid CHAR(4),
+   cname VARCHAR2(20),
+   CONSTRAINT cid_pk PRIMARY KEY(cid)
+);
+
+INSERT INTO crouse_t VALUES('0001','物理');
+
+INSERT INTO crouse_t VALUES('0002','化学');
+
+******************************************************************
+DROP TABLE s_c_t;
+CREATE TABLE s_c_t
+(
+   sid CHAR(4),
+   cid CHAR(4),
+   CONSTRAINT sid_fk FOREIGN KEY(sid) REFERENCES student_t(sid),
+   CONSTRAINT cid_fk FOREIGN KEY(cid) REFERENCES crouse_t(cid)
+);
+
+INSERT INTO s_c_t VALUES('1001','0001');
+INSERT INTO s_c_t VALUES('1001','0002');
+INSERT INTO s_c_t VALUES('1002','0001');
+INSERT INTO s_c_t(sid) VALUES('1003');
+
+_____________________________________________________________
+
+SELECT sname,cname 
+FROM student_t,crouse_t,s_c_t
+WHERE student_t.sid=s_c_t.sid AND crouse_t.cid=s_c_t.cid;
+
+外连接：
+SELECT sname,cname 
+FROM student_t,crouse_t,s_c_t
+WHERE student_t.sid=s_c_t.sid AND crouse_t.cid(+)=s_c_t.cid;(注意：左外接在有的数据库上不能使)

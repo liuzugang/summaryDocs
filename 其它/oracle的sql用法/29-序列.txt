@@ -1,0 +1,26 @@
+CREATE SEQUENCE sequence_name
+
+[START WITH 数字] 初始值
+[INCREMENT BY 数字] 每次增加的数量
+[MAXVALUE 数字] 最大值
+[MINVALUE 数字]  最小值
+[CYCLE ]
+[CACHE 数字]
+[NOCACHE]
+******************************************
+CREATE SEQUENCE lzg_s START WITH 1000 MAXVALUE 2000;
+
+DROP SEQUENCE lzg_s;
+
+SELECT lzg_s.NEXTVAL FROM DUAL;(获得下一个值)
+
+SELECT lzg_s.CURRVAL FROM DUAL;(获得当前值)
+
+
+________________________________________________________________________________________
+序列的修改：
+ALTER SEQUENCE sequence_name;
+
+________________________________________________________________________________________
+序列的删除：
+DROP SEQUENCE sequence_name;

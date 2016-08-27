@@ -1,0 +1,15 @@
+
+在数据库中插入汉字,在java程序中检索
+String str=(String)rs.getString(1);
+str=new String(str.getBytes("iso-8859-1"));
+
+*****************************************
+
+在java程序中插入汉字,从java程序中检索
+String s="张";
+s=new String(s.getBytes(),"iso-8859-1");
+stm.execute("insert into test values('"+s+"')");
+ResultSet rs=stm.executeQuery("select * from test");
+rs.next();
+String str=(String)rs.getString(1);
+str=new String(str.getBytes("iso-8859-1"));

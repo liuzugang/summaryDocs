@@ -1,0 +1,69 @@
+DROP TABLE t_dept;
+CREATE TABLE t_dept
+(
+   Dept_id CHAR(4),
+   Dept_name VARCHAR2(20),
+   CONSTRAINT pk_Dept_id PRIMARY KEY(Dept_id)
+);
+
+
+INSERT INTO t_dept(Dept_id,Dept_name) 
+VALUES('1','RQD');
+INSERT INTO t_dept(Dept_id,Dept_name) 
+VALUES('2','Sales');
+INSERT INTO t_dept(Dept_id,Dept_name) 
+VALUES('3','Marketing');
+SELECT * FROM t_dept;
+
+
+DROP TABLE t_salary;
+CREATE TABLE t_salary 
+(
+   id CHAR(4),
+   Dept_id CHAR(4),
+   Name VARCHAR(20),
+   Salary NUMBER(8,2),
+   CONSTRAINT pk_id PRIMARY KEY(id)
+);
+
+INSERT INTO t_salary(id,Dept_id,Name,Salary)
+VALUES('1','3','Maggie',3454);
+INSERT INTO t_salary(id,Dept_id,Name,Salary)
+VALUES('2','2','Duane',2300);
+INSERT INTO t_salary(id,Dept_id,Name,Salary)
+VALUES('3','3','Gim',5600);
+INSERT INTO t_salary(id,Dept_id,Name,Salary)
+VALUES('4','1','Bill',4500);
+SELECT * FROM t_salary;
+
+SELECT DISTINCT t_dept.Dept_id ,t_dept.Dept_name,(
+                                                   select avg(salary)
+                                                   from t_salary t
+                                                   where t_dept.Dept_id=t.dept_id
+                                                   group by t_salary.Dept_id
+                                                   having avg(salary)>3000
+                                                 ) as avgsalary
+from t_salary,t_dept
+where t_salary.Dept_id=t_dept.Dept_id 
+and t_dept.Dept_id in(
+                          SELECT Dept_id FROM t_salary
+                          group by Dept_id
+                          having Avg(Salary)>3000
+                      );
+
+-------------------------------------------
+SELECT DISTINCT d.Dept_id,d.Dept_name,(
+                               SELECT AVG(Salary)
+                               FROM t_salary ss
+                               WHERE ss.Dept_id=d.Dept_id
+                               GROUP BY ss.Dept_id
+                               HAVING AVG(salary)>3000
+                            )as avgsalary
+FROM t_dept d,t_salary s
+WHERE d.Dept_id=s.Dept_id
+AND d.Dept_id in(
+                     SELECT Dept_id FROM t_salary
+                     group by Dept_id
+                     having Avg(Salary)>3000                    
+                 );
+

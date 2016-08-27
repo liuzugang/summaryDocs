@@ -1,0 +1,14 @@
+CREATE [PUBLIC] SYNONYM synonym_name
+FOR [username] objectname;
+
+DROP PUBLIC SYNONYM student_t_syn;
+
+1>
+CREATE PUBLIC SYNONYM student_t_syn
+FOR student_t;
+
+2>
+CREATE PUBLIC SYNONYM student_t_syn
+FOR system. student_t;
+
+SELECT * FROM student_t_syn;

@@ -1,0 +1,37 @@
+创建新用户
+
+GRANT privileges(columns)
+ON what
+TO user IDENTIFIED BY "password"
+WITH GRANT OPTION
+
+privileges:
+CREATE ,DELETE,DROP,INDEX,INSERT,SELECT,UPDATE,ALL
+
+what:
+所有数据库,数据库中的所有表,表中的某个列
+
+例子:
+
+GRANT ALL ON mydb.* TO liu@localhost IDENTIFIED BY '644375';
+
+GRANT ALL ON mydb.* TO liu@ars.mars.net IDENTIFIED BY '644375';
+
+GRANT ALL ON mydb.* TO liu@% IDENTIFIED BY '644375';
+
+GRANT ALL ON mydb.* TO liu@%.mars.net IDENTIFIED BY '644375';
+
+以上的字符ID号也可用数字代替.
+
+GRANT ALL ON mydb.* TO liu@196.168.0.66 IDENTIFIED BY '644375';
+
+**********************************************************************************
+
+取消和删除用户：
+
+REVOKE privileges(columns) ON what FROM user
+例；REVOKE DELETE ON mydb.* FROM liu@localhost;
+
+DELETE FROM user WHERE USER='user_name' and Host='host_name';
+例：DELETE FROM user WHERE USER='liu' and Host='localhost';
+

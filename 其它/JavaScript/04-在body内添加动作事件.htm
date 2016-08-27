@@ -1,0 +1,24 @@
+<HTML>
+   <HEAD>
+    <TITLE>变量的作用域</TITLE>
+    	<Script Language="JavaScript">
+		var temp;
+		temp=3;
+	
+		function func1()
+		{	
+			alert("函数func1中的变量temp值为：" + temp);
+		}
+	</Script>
+	<Script Language="JavaScript">
+		function func2()
+		{
+			//var temp=5;
+			temp=5;
+			alert("函数func2中的变量temp值为：" + temp);
+		}
+	</Script>
+   </HEAD>
+   <BODY OnClick="func1();func2();func1();">
+   </BODY>
+</HTML>

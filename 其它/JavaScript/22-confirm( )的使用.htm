@@ -1,0 +1,27 @@
+<HTML>
+
+<HEAD>
+	<TITLE>Confirm测试</TITLE>
+</HEAD>
+
+<BODY>
+
+<Script Language="JavaScript">
+   function my_confirm()
+   {
+   //注意confirm的返回值	
+   if(confirm("关闭窗口？"))
+     alert("您点的是确定按钮吧！");
+   else
+     alert("您点的一定是取消按钮了！");
+   }
+</Script>
+
+<P>　</P>
+
+<form name="myform">
+  <input type="button" value="关闭窗口" onClick="my_confirm()">
+</form>
+
+</BODY>
+</HTML>

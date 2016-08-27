@@ -1,0 +1,43 @@
+CREATE TABLE shangpin_table
+( 
+    gname VARCHAR(20),
+    gprice NUMBER(8,2),
+    shuliang NUMBER(3)
+);
+
+SELECT gname,gprice,shuliang FROM shangpin_table;
+
+SELECT * FROM shangpin_table;
+
+INSERT INTO shangpin_table 
+(gname,gprice)
+VALUES('aa',2.00);
+
+INSERT INTO shangpin_table 
+(gname,gprice)
+VALUES('cc',2.25);
+
+INSERT INTO shangpin_table 
+(gname,gprice)
+VALUES('bb',2.50);
+
+INSERT INTO shangpin_table 
+(gname,gprice)
+VALUES('bbb%',2.50);
+
+
+
+*****************************************
+添加列
+ALTER TABLE shangpin_table
+ADD gcount NUMBER(4) NULL;
+
+
+更改列的数据类型
+ALTER TABLE shangpin_table
+MODIFY gname VARCHAR(26);
+
+更改空值选项
+ALTER TABLE shangpin_table
+MODIFY gname NOT NULL;
+

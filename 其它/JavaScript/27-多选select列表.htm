@@ -1,0 +1,36 @@
+<html>
+
+<head>
+<script language="javascript">
+<!--
+function test(a) {
+    var mystr = ""
+    var len = a.options.length
+    for ( var i=0; i<len; i++) {
+         if ( a.options[i].selected) 
+         mystr+=a.options[i].text+"\n"
+    }
+    
+    alert(mystr)
+}
+//-->
+</script>
+</head>
+
+<body>
+
+<form method="POST" action="" name="myform">
+<p>
+  <select size="4" name="D1" multiple>
+  <option>Delphi</option>
+  <option selected>Java</option>
+  <option>JavaScript</option>
+  <option>C++</option>
+  <option>VB</option>
+  </select>
+  <input type="button" value="选项信息" name="B1" onclick="test(myform.D1)"></p>
+</form>
+
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+CREATE DATABASE LINK 数据库链
+CONNECT TO user_name
+IDENTIFIED BY password
+USING 'ORACLE连接串'
+*****************************************
+
+创建数据库链：
+CREATE DATABASE LINK lzg_link
+CONNECT TO system
+IDENTIFIED BY initial123
+USING 'wyf';(此处为sid)
+
+**************************
+删除数据库链：
+DROP DATABASE LINK lzg_link;
+
+
+**************************
+为数据库链创建同义词：
+1>
+CREATE PUBLIC SYNONYM student_tl 
+FOR student_t@lzg_link;
+
+2>
+CREATE SYNONYM student_t_l_s 
+FOR student_t@lzg_link;
+
+
+**************************
+使用数据库链：
+
+SELECT * FROM student_t@lzg_link;
+
+SELECT * FROM student_t_l_s;

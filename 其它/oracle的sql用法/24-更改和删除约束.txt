@@ -1,0 +1,7 @@
+¸ü¸Ä£º
+ 
+    ALTER TABLE table_name MODIFY (field NULL);
+
+É¾³ý£º
+    
+    ALTER TABLE table_name DROP CONSTRANT constraint_name;

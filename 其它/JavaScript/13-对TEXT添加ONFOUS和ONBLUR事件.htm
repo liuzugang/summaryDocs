@@ -1,0 +1,23 @@
+<html>
+	
+	<head>
+		<Script Language="JavaScript">
+			function test1()
+			{
+				alert("我成为了输入焦点！");
+			}
+			function test2()
+			{
+				alert("我失去了输入焦点！");
+			}
+		</Script>
+	</head>
+
+	<body>
+		<form>
+			<Input type="text" name="Test1" value="Test1">
+			<Input type="text" name="Test2" value="Test2"onFocus="test1()" onBlur="test2()">
+		</form>
+	</body>
+
+</html>

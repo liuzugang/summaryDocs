@@ -1,0 +1,28 @@
+
+<script src="js/utils.js"></script>
+
+
+<script>
+var map = new Map();
+
+//放置元素
+map.put("key1","元素1");
+map.put("key2","元素2");
+map.put("key3","元素3");
+map.put("key4","元素4");
+map.put("key4","元素5");//key相同则替换原来的元素
+
+//打印元素个数
+document.write("元素个数"+map.size()+"<br>");
+document.write(map.get("key4")+"<br>");//根据key获取元素
+document.write(map.get("ke4")+"<br>");//根据key获取元素  不存在则为NULL
+
+var keyarr = map.getKeys();//获取key
+document.write("<br>");
+document.write("元素的key:"+"<br>");
+for(var i=0;i<keyarr.length;i++){
+	document.write(keyarr[i]+" ");
+}
+
+
+</script>

@@ -1,0 +1,20 @@
+set echo on
+delete from plan_table;
+commit;
+
+explain plan for select * from bit_test where sname='name1234';
+
+select '-------无索引------' from dual;
+select operation,cost from plan_table;
+
+delete from plan_table;
+commit;
+
+
+explain plan for select * from bit_test where sage='1234';
+
+select '-------有索引------' from dual;
+select operation,cost from plan_table;
+
+
+

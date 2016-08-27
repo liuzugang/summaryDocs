@@ -1,0 +1,7 @@
+SELECT * FROM 
+             (
+              SELECT * FROM table_name 
+              Order by sage
+             )
+WHERE rownum<=10;
+

@@ -1,0 +1,31 @@
+<script src="js/utils.js"></script>
+
+<script>
+	var list = new List();
+
+	list.add("element1");//添加元素
+	list.add("element2");
+	list.add("element3");
+
+
+	//打印元素
+	for(var i=0;i<list.size();i++){
+		document.write(list.get(i)+" ");
+	}
+
+	list.remove(1);//删除索引为1的元素
+	//list.removeAll();//删除所有元素
+
+	//打印删除后的元素
+	document.write("<br>删除后的元素<br>")
+	for(var i=0;i<list.size();i++){
+		document.write(list.get(i)+" ")
+	}
+	//将元素变为数组
+	var arr = list.toArray();
+	document.write("<br>变为数组<br>")
+	//打印元素
+	for(var i=0;i<arr.length;i++){
+		document.write(arr[i]+" ")
+	}
+</script>

@@ -1,0 +1,3 @@
+SELECT * FROM shangpin_table;
+
+INSERT INTO shangpin_table (gname,gprice) VALUES('Tom''s Java',45.50);

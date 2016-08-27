@@ -1,0 +1,18 @@
+   DROP TABLE student_t;
+
+   CREATE TABLE student_t
+   (
+      sname VARCHAR2(20),
+      sage NUMBER(3),
+      CONSTRAINT sname_sage_ck CHECK(sage>10 AND sage<30)      
+   );
+
+
+½ûÓÃ£º
+ALTER TABLE student_t 
+DISABLE CONSTRAINT sname_sage_ck;
+
+ÆðÓÃ£º
+ALTER TABLE student_t 
+ENABLE CONSTRAINT sname_sage_ck;
+

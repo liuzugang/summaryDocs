@@ -1,0 +1,43 @@
+drop table bit_test;
+
+CREATE TABLE bit_test
+(
+    sage NUMBER(2),
+    sname VARCHAR2(20)
+);
+
+CREATE BITMAP INDEX sage_index 
+ON bit_test(sage);
+
+set serveroutput on
+set echo on
+
+declare
+  n_loop number;
+  s_time date;
+  e_time date;
+begin
+    select sysdate into s_time from dual;
+
+    for n_loop in 1..10000 loop
+      insert into bit_test values(1,'name'||n_loop);
+      commit;
+    end loop;
+
+    for n_loop in 10001..20000 loop
+      insert into bit_test values(1,'name'||n_loop);
+      commit;
+    end loop;
+
+    for n_loop in 20001..30000 loop
+      insert into bit_test values(3,'name'||n_loop);
+      commit;
+    end loop;
+
+    select sysdate into s_time from dual;
+
+  dbms_output.put_line(to_char((s_time),'hh:mi:ss'));
+  dbms_output.put_line(to_char((s_time),'hh:mi:ss'));
+end;
+/
+set serveroutput off

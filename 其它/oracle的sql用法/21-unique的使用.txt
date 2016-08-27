@@ -1,0 +1,45 @@
+1>
+   DROP TABLE student_t;
+
+   CREATE TABLE student_t
+   (
+      sname VARCHAR2(20) unique,
+      sage NUMBER(3) unique      
+   );
+
+2>
+
+   DROP TABLE student_t;
+
+   CREATE TABLE student_t
+   (
+      sname VARCHAR2(20),
+      sage NUMBER(3),
+      CONSTRAINT sname_sage_cs UNIQUE(sname,sage)      
+   );
+   ************************************
+   
+   DROP TABLE student_t;
+
+   CREATE TABLE student_t
+   (
+      sname VARCHAR2(20),
+      sage NUMBER(3),
+      CONSTRAINT sname_cs UNIQUE(sname),  
+      CONSTRAINT sage_cs UNIQUE(sage) 
+   );
+
+3>
+   DROP TABLE student_t;
+
+   CREATE TABLE student_t
+   (
+      sname VARCHAR2(20),
+      sage NUMBER(3)      
+   );
+
+   ALTER TABLE student_t
+   ADD CONSTRAINT sname_sage_cs 
+   UNIQUE(sname,sage);
+ 
+ 
